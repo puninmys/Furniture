@@ -1,345 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Furniro - Home</title>
-  <link rel="stylesheet" href="styles/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homeopathy - A Legacy of Healing</title>
+  <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="container header">
-    <div class="logo">
-      <img src="images/logo.png" alt="Furniro Logo" />
-      <strong>Furniro</strong>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-    <div class="icons">
-      <!-- User Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">
-        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-        <circle cx="12" cy="7" r="4"></circle>
-      </svg>
-
-      <!-- Search Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-
-      <!-- Heart Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
-        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"></path>
-      </svg>
-
-      <!-- Cart Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
-        <circle cx="9" cy="21" r="1"></circle>
-        <circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
+    <!-- Header -->
+  <header>
+    <!-- Logo and Navigation Bar -->
+    <div class="navbar">
+      <div class="logo">
+        <img src="images/logo.png" alt="Homeopathy Logo">
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact" onclick="openModal('contact')">Contact Us</a></li>
+        <li>
+          <!-- Social Media Icons -->
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank">
+              <img src="images/facebook.svg" alt="Facebook">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+              <img src="images/instagram.svg" alt="Instagram">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+              <img src="images/linkedin.svg" alt="LinkedIn">
+            </a>
+          </div>
+        </li>
+      </ul>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content container">
-      <div class="hero-box">
-        <p class="small-title">New Arrival</p>
-        <h1>Discover Our New Collection</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
-        <a href="#" class="btn">Buy Now</a>
+   <!-- Banner Section -->
+  <section id="home" class="header">
+    <div class="container">
+      <img src="images/banner2.jpg" alt="Homeopathy Banner" class="banner-image">
+      <h1>Homeopathy - A Legacy of Healing</h1>
+      <p>Homeopathy treatment for PCOD in Bangalore</p>
+    </div>
+  </section>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="container">
+      <h2>Restore with the Goodness of Homeopathy</h2>
+      <div class="stats-grid">
+        <div class="stat-item" style="background-image: url('images/experience.jpg');">
+          <h3>10+ Years of Experience</h3>
+        </div>
+        <div class="stat-item" style="background-image: url('images/patients.jpg');">
+          <h3>5000+ Patients Treated</h3>
+        </div>
+        <div class="stat-item" style="background-image: url('images/services.jpg');">
+          <h3>20+ Services</h3>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Browse The Range -->
-  <section class="container section">
-    <h2 class="section-title">Browse The Range</h2>
-    <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <div class="range-grid">
-      <div class="range-item">
-        <img src="images/dining.jpg" alt="Dining" />
-        <h3>Dining</h3>
-      </div>
-      <div class="range-item">
-        <img src="images/living.jpg" alt="Living" />
-        <h3>Living</h3>
-      </div>
-      <div class="range-item">
-        <img src="images/bedroom.jpg" alt="Bedroom" />
-        <h3>Bedroom</h3>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Products -->
-  <section class="products">
-    <h2 class="section-title">Our Products</h2>
-    <div class="product-grid">
-      <!-- Product 1 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p1.jpg" alt="Slytherine" />
-          <span class="badge">-30%</span>
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
+   <!-- Key Benefits Section -->
+   <section class="key-benefits">
+    <div class="container">
+      <h2>Key Benefits of Homeopathy</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <img src="images/holistic.jpg" alt="Holistic Healing">
+          <h3>Holistic Healing</h3>
+          <p>Homeopathy treats the individual as a whole—mind, body, and emotions—rather than just the disease symptoms.</p>
         </div>
-        <div class="product-content">
-          <h4>Slytherine</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000 <span class="old-price">Rp 3.500.000</span></p>
+        <div class="benefit-item">
+          <img src="images/no-side-effects.jpg" alt="No Side Effects">
+          <h3>No Side Effects</h3>
+          <p>Remedies are made from natural substances in highly diluted forms, making them safe and free from harmful side effects.</p>
         </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p2.jpg" alt="Leviosa" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
+        <div class="benefit-item">
+          <img src="images/personalized-treatment.jpg" alt="Personalized Treatment">
+          <h3>Personalized Treatment</h3>
+          <p>Every remedy is tailored to the individual’s unique symptoms, lifestyle, and emotional state, ensuring effective and focused healing.</p>
         </div>
-        <div class="product-content">
-          <h4>Leviosa</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000</p>
+        <div class="benefit-item">
+          <img src="images/immunity.jpg" alt="Strengthens Immunity">
+          <h3>Strengthens Immunity</h3>
+          <p>Homeopathy boosts the body’s natural defense system, helping to prevent future illnesses.</p>
         </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p3.jpg" alt="Lolito" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge">-50%</span>
+        <div class="benefit-item">
+          <img src="images/safe-for-all.jpg" alt="Safe for All Ages">
+          <h3>Safe for All Ages</h3>
+          <p>From infants to the elderly, homeopathy is gentle and safe for all age groups, including pregnant women.</p>
         </div>
-        <div class="product-content">
-          <h4>Lolito</h4>
-          <p>Luxury big sofa</p>
-          <p class="price">Rp 7.000.000 <span class="old-price">Rp 14.000.000</span></p>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p4.jpg" alt="Respira" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge new">New</span>
-        </div>
-        <div class="product-content">
-          <h4>Respira</h4>
-          <p>Outdoor bar table and stool</p>
-          <p class="price">Rp 500.000</p>
-        </div>
-      </div>
-
-      <!-- Product 1 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p1.jpg" alt="Slytherine" />
-          <span class="badge">-30%</span>
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-content">
-          <h4>Slytherine</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000 <span class="old-price">Rp 3.500.000</span></p>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p2.jpg" alt="Leviosa" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-content">
-          <h4>Leviosa</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000</p>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p3.jpg" alt="Lolito" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge">-50%</span>
-        </div>
-        <div class="product-content">
-          <h4>Lolito</h4>
-          <p>Luxury big sofa</p>
-          <p class="price">Rp 7.000.000 <span class="old-price">Rp 14.000.000</span></p>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p4.jpg" alt="Respira" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge new">New</span>
-        </div>
-        <div class="product-content">
-          <h4>Respira</h4>
-          <p>Outdoor bar table and stool</p>
-          <p class="price">Rp 500.000</p>
-        </div>
-      </div>
-
-      <!-- Product 1 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p1.jpg" alt="Slytherine" />
-          <span class="badge">-30%</span>
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-content">
-          <h4>Slytherine</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000 <span class="old-price">Rp 3.500.000</span></p>
-        </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p2.jpg" alt="Leviosa" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-        </div>
-        <div class="product-content">
-          <h4>Leviosa</h4>
-          <p>Stylish cafe chair</p>
-          <p class="price">Rp 2.500.000</p>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p3.jpg" alt="Lolito" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge">-50%</span>
-        </div>
-        <div class="product-content">
-          <h4>Lolito</h4>
-          <p>Luxury big sofa</p>
-          <p class="price">Rp 7.000.000 <span class="old-price">Rp 14.000.000</span></p>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="product">
-        <div class="product-image">
-          <img src="images/p4.jpg" alt="Respira" />
-          <div class="hover-content">
-            <button class="btn">Add to cart</button>
-            <div class="hover-links">
-              <a href="#"><img src="images/share-icon.svg" alt="Share" /> Share</a>
-              <a href="#"><img src="images/compare-icon.svg" alt="Compare" /> Compare</a>
-              <a href="#"><img src="images/like-icon.svg" alt="Like" /> Like</a>
-            </div>
-          </div>
-          <span class="badge new">New</span>
-        </div>
-        <div class="product-content">
-          <h4>Respira</h4>
-          <p>Outdoor bar table and stool</p>
-          <p class="price">Rp 500.000</p>
+        <div class="benefit-item">
+          <img src="images/non-invasive.jpg" alt="Non-Addictive & Non-Invasive">
+          <h3>Non-Addictive & Non-Invasive</h3>
+          <p>Homeopathic remedies are non-habit forming and do not involve surgeries or invasive procedures.</p>
         </div>
       </div>
     </div>
   </section>
+
+
+  <!-- OUR SERVICES Section -->
+  <section id="services" class="services">
+  <div class="container">
+    <h2>OUR SERVICES</h2>
+    <p>Discover the Range of Cures Through Homeopathy:</p>
+    <div class="service-grid">
+      <div class="service-tile">
+        <img src="images/pcod.jpg" alt="PCOD Service">
+        <h3>PCOD</h3>
+        <p>Homeopathy offers a gentle and holistic approach to managing PCOD by addressing...</p>
+        <button class="read-more-btn" onclick="openModal('pcod')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/thyroid.jpg" alt="Thyroid Service">
+        <h3>Thyroid</h3>
+        <p>Homeopathic treatment for thyroid disorders works by stimulating...</p>
+        <button class="read-more-btn" onclick="openModal('thyroid')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/infertility.jpg" alt="Infertility Service">
+        <h3>Infertility Male & Female</h3>
+        <p>Homeopathy treats infertility by targeting the root causes...</p>
+        <button class="read-more-btn" onclick="openModal('infertility')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/diabetes.jpg" alt="Diabetes Service">
+        <h3>Diabetes</h3>
+        <p>Homeopathy helps in managing diabetes by balancing the body’s...</p>
+        <button class="read-more-btn" onclick="openModal('diabetes')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/allergies.jpg" alt="Allergies Service">
+        <h3>Allergies</h3>
+        <p>Homeopathy treats allergies by building the body’s resistance...</p>
+        <button class="read-more-btn" onclick="openModal('allergies')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/autism.jpg" alt="Autism & ADHD Service">
+        <h3>Autism & ADHD</h3>
+        <p>Homeopathy offers supportive care for children with Autism...</p>
+        <button class="read-more-btn" onclick="openModal('autism')">Read More</button>
+      </div>
+      <div class="service-tile">
+        <img src="images/depression.jpg" alt="Depression Service">
+        <h3>Depression</h3>
+        <p>Homeopathy treats depression by looking beyond just the symptoms...</p>
+        <button class="read-more-btn" onclick="openModal('depression')">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+  <!-- Modals -->
+  <div id="pcod-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('pcod')">&times;</span>
+      <h3>PCOD (Polycystic Ovarian Disease)</h3>
+      <p>Homeopathy offers a gentle and holistic approach to managing PCOD by addressing the hormonal imbalance at its root. It focuses on regulating menstrual cycles, reducing ovarian cysts, and improving overall reproductive health. Unlike conventional treatments, homeopathy personalizes remedies based on individual symptoms, stress levels, and body constitution. With consistent care, patients often notice reduced hair growth, weight regulation, improved mood, and increased fertility. It’s a non-invasive, side-effect-free way to restore hormonal harmony and enhance quality of life.</p>
+    </div>
+  </div>
+
+  <div id="thyroid-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('thyroid')">&times;</span>
+      <h3>Thyroid (Hypothyroidism & Hyperthyroidism)</h3>
+      <p>Homeopathic treatment for thyroid disorders works by stimulating the body’s natural healing processes. Whether it's hypothyroidism or hyperthyroidism, remedies are selected based on individual symptoms like fatigue, weight changes, mood swings, or palpitations. Instead of replacing hormones artificially, homeopathy supports the thyroid gland in functioning optimally. Long-term treatment helps in stabilizing hormone levels, easing associated symptoms, and improving energy and metabolism. It's a sustainable, side-effect-free option for those seeking natural management of thyroid issues.</p>
+    </div>
+  </div>
+
+  <div id="infertility-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('infertility')">&times;</span>
+      <h3>Infertility (Male & Female)</h3>
+      <p>Homeopathy treats infertility by targeting the root causes—hormonal imbalance, stress, low sperm count, ovulation issues, and more—without using harsh chemicals or hormones. For women, it regulates cycles and supports ovulation, while for men it improves sperm quality and vitality. Homeopathy also addresses emotional blocks, anxiety, or trauma that may be affecting conception. It’s a safe, non-invasive, and holistic alternative that works in sync with the body, making it a popular option for couples facing fertility challenges.</p>
+    </div>
+  </div>
+
+  <div id="diabetes-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('diabetes')">&times;</span>
+      <h3>Diabetes</h3>
+      <p>Homeopathy helps in managing diabetes by balancing the body’s internal functions and addressing symptoms like frequent urination, fatigue, thirst, and poor wound healing. It works by enhancing the body’s ability to regulate blood sugar naturally, improving pancreatic function and metabolism. While not a replacement for insulin in critical cases, homeopathy can help stabilize sugar levels, prevent complications, and improve overall well-being. It is also effective in treating diabetes-related conditions like neuropathy or skin infections without side effects.</p>
+    </div>
+  </div>
+
+  <div id="allergies-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('allergies')">&times;</span>
+      <h3>Allergies</h3>
+      <p>Homeopathy treats allergies by building the body’s resistance rather than suppressing symptoms. Whether it’s skin allergies, respiratory allergies like asthma and rhinitis, or food intolerances, homeopathic remedies aim to desensitize the immune system to triggers. Personalized treatment plans are created after understanding each patient’s physical and emotional constitution. Over time, patients experience fewer flare-ups, reduced dependency on antihistamines, and long-term relief. It’s a safe, natural way to control allergies from the root.</p>
+    </div>
+  </div>
+
+  <div id="autism-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('autism')">&times;</span>
+      <h3>Autism & ADHD</h3>
+      <p>Homeopathy offers supportive care for children with Autism and ADHD by gently addressing emotional, behavioral, and developmental symptoms. Remedies are chosen based on a child's unique personality, sensitivities, behavioral patterns, and triggers. It can help improve attention span, reduce hyperactivity, enhance speech and social interaction, and manage emotional outbursts. While not a cure, homeopathy complements therapies and provides a safe, side-effect-free way to support holistic growth and better quality of life for children and families.</p>
+    </div>
+  </div>
+
+  <div id="depression-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('depression')">&times;</span>
+      <h3>Depression</h3>
+      <p>Homeopathy treats depression by looking beyond just the symptoms, focusing on the emotional, physical, and psychological state of the person. Remedies are tailored to individual experiences—whether it's deep sadness, hopelessness, irritability, insomnia, or fatigue. Unlike antidepressants, homeopathy doesn’t cause dependency or side effects. It aims to gently uplift mood, restore emotional balance, and improve the person’s outlook on life. With regular care, many patients find improved mental clarity, calmness, and motivation to engage in life again.</p>
+    </div>
+  </div>
+
+   <!-- Contact Modal -->
+  <div id="contact-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('contact')">&times;</span>
+      <h3>Contact Us</h3>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="contact-number">Contact Number:</label>
+        <input type="tel" id="contact-number" name="contact-number" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Furniro. All rights reserved.</p>
+      <p>&copy; 2025 Homeopathy Clinic. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    function openModal(service) {
+      document.getElementById(service + '-modal').style.display = 'flex';
+    }
+
+    function closeModal(service) {
+      document.getElementById(service + '-modal').style.display = 'none';
+    }
+
+    function openModal(service) {
+      document.getElementById(service + '-modal').style.display = 'flex';
+    }
+
+    function closeModal(service) {
+      document.getElementById(service + '-modal').style.display = 'none';
+    }
+
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
