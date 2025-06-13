@@ -504,7 +504,7 @@ h1, h2, h3 {
 .about-us p {
   font-size: 1em;
   color: #666;
-  text-align: justify;
+  text-align: center;
 }
 
 /* Responsive Styles */
