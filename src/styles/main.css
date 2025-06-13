@@ -502,10 +502,8 @@ h1, h2, h3 {
 }
 
 .about-us p {
-  font-size: 1.2em;
-  line-height: 1.8;
+  font-size: 1em;
   color: #666;
-  margin-bottom: 20px;
   text-align: justify;
 }
 
@@ -565,14 +563,13 @@ h1, h2, h3 {
   }
 
   .navbar {
-    flex-direction: column;
-    align-items: center; /* Center-align logo */
-    position: relative;
+    flex-direction: row;
+    align-items: center;
   }
 
    .logo {
+     flex: 1;
     text-align: center; /* Center-align logo */
-    margin-bottom: 10px; /* Add spacing below the logo */
   }
 
   .phone-section {
@@ -589,11 +586,13 @@ h1, h2, h3 {
   }
 
   .phone-link img {
-    width: 40px; /* Adjust phone icon size */
-    height: 40px;
+    width: 30px; /* Adjust phone icon size */
   }
 
-  .phone-section span,
+  .phone-section span {
+    display: none; /* Ensure phone number is visible below the icon */
+  }
+
   .phone-section p {
     display: none; /* Hide phone number and support text in mobile view */
   }
@@ -680,10 +679,21 @@ h1, h2, h3 {
   }
 
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px; /* Reduce padding for smaller screens */
+    flex-direction: row;
+    align-items: center;
   }
+
+   .logo {
+     flex: 1;
+    text-align: center; /* Center-align logo */
+  }
+
+  .phone-section {
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Move phone icon to the top-right corner */
+  }
+
 
   .nav-links {
     display: none;
@@ -696,7 +706,7 @@ h1, h2, h3 {
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    background-color: #dbe4dc; /* Ensur
+    background-color: #dbe4dc;
     z-index: 1000;
     
   }
