@@ -144,22 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transitionDelay = `${index * 0.1}s`;
     });
     
-    const valueCards = document.querySelectorAll('.value-card');
-    valueCards.forEach((card, index) => {
-        card.classList.add('scale-in');
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
-    
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.classList.add('slide-in-left');
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
-    
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        card.classList.add('fade-in');
-        card.style.transitionDelay = `${index * 0.1}s`;
+    const treatmentItems = document.querySelectorAll('.treatment-item');
+    treatmentItems.forEach((item, index) => {
+        item.classList.add('fade-in');
+        item.style.transitionDelay = `${index * 0.2}s`;
     });
     
     const contactCards = document.querySelectorAll('.contact-card');
@@ -209,7 +197,7 @@ contactForm.addEventListener('submit', function(e) {
     }
     
     // Success message
-    alert('Thank you for your inquiry! We will contact you soon to discuss your project requirements.');
+    alert('Thank you for your inquiry! We will contact you soon to discuss your treatment requirements.');
     
     // Reset form
     this.reset();
@@ -252,7 +240,7 @@ document.querySelectorAll('.form-group input, .form-group select, .form-group te
 // Button Click Handlers
 document.querySelectorAll('.contact-btn, .btn-primary').forEach(button => {
     button.addEventListener('click', function(e) {
-        if (this.textContent.includes('Contact') || this.textContent.includes('Get Quote')) {
+        if (this.textContent.includes('Contact') || this.textContent.includes('Book') || this.textContent.includes('Consultation')) {
             e.preventDefault();
             const contactSection = document.getElementById('contact');
             const headerHeight = document.querySelector('.header').offsetHeight;
@@ -271,24 +259,24 @@ document.querySelectorAll('.contact-btn, .btn-primary').forEach(button => {
     });
 });
 
-// View Services/Projects Button Functionality
+// View Services/Treatments Button Functionality
 document.querySelectorAll('.btn-secondary').forEach(button => {
     button.addEventListener('click', function(e) {
-        if (this.textContent.includes('View Projects')) {
+        if (this.textContent.includes('Learn More') || this.textContent.includes('View Results')) {
             e.preventDefault();
-            const projectsSection = document.getElementById('ongoing');
+            const servicesSection = document.getElementById('services');
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = projectsSection.offsetTop - headerHeight;
+            const targetPosition = servicesSection.offsetTop - headerHeight;
             
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
             });
-        } else if (this.textContent.includes('View Services')) {
+        } else if (this.textContent.includes('Explore Services')) {
             e.preventDefault();
-            const servicesSection = document.getElementById('services');
+            const treatmentsSection = document.getElementById('treatments');
             const headerHeight = document.querySelector('.header').offsetHeight;
-            const targetPosition = servicesSection.offsetTop - headerHeight;
+            const targetPosition = treatmentsSection.offsetTop - headerHeight;
             
             window.scrollTo({
                 top: targetPosition,
@@ -299,9 +287,9 @@ document.querySelectorAll('.btn-secondary').forEach(button => {
 });
 
 // Add hover effects to cards
-document.querySelectorAll('.service-card, .value-card, .feature-card, .project-card').forEach(card => {
+document.querySelectorAll('.service-card, .contact-card, .treatment-item').forEach(card => {
     card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.style.transform = 'translateY(-5px) scale(1.02)';
     });
     
     card.addEventListener('mouseleave', function() {
@@ -320,51 +308,8 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Add progress bar animation for ongoing projects
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.project-progress .progress');
-    
-    progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 500);
-    });
-}
-
-// Trigger progress bar animation when projects section is visible
-const projectsObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateProgressBars();
-        }
-    });
-}, { threshold: 0.5 });
-
-const ongoingProjectsSection = document.querySelector('.ongoing-projects');
-if (ongoingProjectsSection) {
-    projectsObserver.observe(ongoingProjectsSection);
-}
-
-// Add typing effect to hero titles
-function typeWriter(element, text, speed = 100) {
-    element.innerHTML = '';
-    let i = 0;
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
-}
-
-// Add floating animation to value cards
-document.querySelectorAll('.value-card').forEach((card, index) => {
+// Add floating animation to service cards
+document.querySelectorAll('.service-card').forEach((card, index) => {
     card.style.animationDelay = `${index * 0.2}s`;
     card.classList.add('float-animation');
 });
@@ -391,7 +336,7 @@ progressBar.style.cssText = `
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, #e91e63, #f06292);
     z-index: 10001;
     transition: width 0.1s ease;
 `;
@@ -409,7 +354,7 @@ document.addEventListener('mousemove', function(e) {
     const mouseX = e.clientX / window.innerWidth;
     const mouseY = e.clientY / window.innerHeight;
     
-    const floatingElements = document.querySelectorAll('.value-icon, .service-icon, .feature-icon');
+    const floatingElements = document.querySelectorAll('.service-icon, .contact-icon');
     floatingElements.forEach((element, index) => {
         const speed = (index + 1) * 0.02;
         const x = (mouseX - 0.5) * 10 * speed;
@@ -440,4 +385,71 @@ function initAnimations() {
 // Call initialization functions
 document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
+});
+
+// Treatment cards interactive effects
+document.querySelectorAll('.treatment-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        const image = this.querySelector('.treatment-image img');
+        if (image) {
+            image.style.transform = 'scale(1.1)';
+        }
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        const image = this.querySelector('.treatment-image img');
+        if (image) {
+            image.style.transform = 'scale(1)';
+        }
+    });
+});
+
+// Add typing effect to hero titles (optional enhancement)
+function typeWriter(element, text, speed = 100) {
+    element.innerHTML = '';
+    let i = 0;
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Smooth reveal animations for sections
+const revealElements = document.querySelectorAll('.section-header, .about-content, .services-grid, .treatments-container');
+revealElements.forEach(element => {
+    element.classList.add('fade-in');
+    observer.observe(element);
+});
+
+// Enhanced form interactions
+document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(element => {
+    element.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+    });
+    
+    element.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+        if (this.value) {
+            this.parentElement.classList.add('filled');
+        } else {
+            this.parentElement.classList.remove('filled');
+        }
+    });
+});
+
+// Add custom cursor effect for interactive elements
+document.querySelectorAll('button, .service-card, .contact-card, .treatment-item').forEach(element => {
+    element.addEventListener('mouseenter', function() {
+        document.body.style.cursor = 'pointer';
+    });
+    
+    element.addEventListener('mouseleave', function() {
+        document.body.style.cursor = 'default';
+    });
 });
