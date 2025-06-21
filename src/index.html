@@ -3,665 +3,510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T3 Infra - Premium Plot & Farmland Development</title>
+    <title>News Football Academy - Premier Cricket & Football Training</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loader">
-            <div class="construction-icon">
-                <i class="fas fa-hard-hat"></i>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="/ICA-LOGO.png" alt="News Football Academy" class="logo-img">
             </div>
-            <div class="loading-text">Building Your Dreams...</div>
-            <div class="progress-bar">
-                <div class="progress"></div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#training" class="nav-link">Training</a></li>
+                <li><a href="#why-choose" class="nav-link">Why Choose Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="social-icons">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://wa.me/919632877217" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <button class="contact-btn" onclick="scrollToContact()">Contact Us</button>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-content">
-                    <!-- Header Logo -->
-                    <div class="logo">
-                        <img src="images/logo.jpeg" alt="T3 Infra Logo" style="height:100px;">
-                    </div>
-                    
-                    <ul class="nav-menu">
-                        <li><a href="#home" class="nav-link">Home</a></li>
-                        <li><a href="#about" class="nav-link">About Us</a></li>
-                        <li><a href="#services" class="nav-link">Services</a></li>
-                        <li><a href="#ongoing" class="nav-link">Residential Projects</a></li>
-                        <li><a href="#completed" class="nav-link">Form land Projects</a></li>
-                        <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                    </ul>
-                    
-                    <button class="contact-btn">Get Quote</button>
-                    
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-slider">
-            <div class="slide active">
-                <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"></div>
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="container">
-                        <div class="hero-text">
-                            <h1 class="hero-title">Looking to Buy a Plot to Construct Your Dream Home?</h1>
-                            <p class="hero-description">T3 Infra is your go-to choice for premium plot development. Perfectly positioned, this development balances serene landscapes with convenient access to key facilities.</p>
-                            <div class="hero-buttons">
-                                <button class="btn-primary">Explore Plots</button>
-                                <button class="btn-secondary">View Projects</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="slide">
-                <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"></div>
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="container">
-                        <div class="hero-text">
-                            <h1 class="hero-title">Invest in Quality Living</h1>
-                            <p class="hero-description">Premium Plots and Farmlands Ready for Your Dream Home! Experience the perfect blend of luxury and nature.</p>
-                            <div class="hero-buttons">
-                                <button class="btn-primary">View Farmlands</button>
-                                <button class="btn-secondary">Contact Us</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="slide">
-                <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')"></div>
-                <div class="slide-overlay"></div>
-                <div class="slide-content">
-                    <div class="container">
-                        <div class="hero-text">
-                            <h1 class="hero-title">Transforming Land into Legacy</h1>
-                            <p class="hero-description">Expert Plot and Farmland Development! Creating communities designed for quality living with 20+ years of expertise.</p>
-                            <div class="hero-buttons">
-                                <button class="btn-primary">Our Legacy</button>
-                                <button class="btn-secondary">Get Started</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
         </div>
-        
-        <!-- <div class="slider-controls">
-            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
-            <div class="slider-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
-            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
-        </div> -->
-        
-        <!-- Stats Section -->
-        <div class="hero-stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <!-- <div class="stat-item">
-                        <div class="stat-number" data-count="500">0</div>
-                        <div class="stat-label">Properties Sold</div>
-                    </div> -->
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-main">News Football Academy</span>
+                    <span class="title-sub">Where Champions Are Made</span>
+                </h1>
+                <p class="hero-description">
+                    Professional cricket and football training with expert coaches, 
+                    modern facilities, and a proven track record of success.
+                </p>
+                <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number" data-count="150">0</div>
-                        <div class="stat-label">Satisfied Clients</div>
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Students Trained</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-count="200">0</div>
-                        <div class="stat-label">Prime Locations</div>
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Expert Trainers</span>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-count="20">0</div>
-                        <div class="stat-label">Years Experience</div>
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="100">0</div>
-                        <div class="stat-label">% Compliance</div>
-                    </div>
-                    <!-- <div class="stat-item">
-                        <div class="stat-number" data-count="300">0</div>
-                        <div class="stat-label">Dream Homes Built</div>
-                    </div> -->
                 </div>
+            </div>
+            
+            <!-- Contact Form in Hero -->
+            <div class="hero-form">
+                <div class="form-header">
+                    <h3>Start Your Journey</h3>
+                    <p>Get in touch for a free consultation</p>
+                </div>
+                <form class="contact-form" id="heroForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <select name="sport" required>
+                            <option value="">Select Sport</option>
+                            <option value="cricket">Cricket</option>
+                            <option value="football">Football</option>
+                            <option value="both">Both Sports</option>
+                        </select>
+                        <i class="fas fa-futbol"></i>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span>Join Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about-section" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About T3 Infra</h2>
-                <p class="section-subtitle">Creating Iconic Structures with a Commitment to Quality</p>
+                <h2>About Indian Cricket Academy</h2>
+                <div class="section-divider"></div>
             </div>
             
             <div class="about-content">
                 <div class="about-text">
                     <div class="about-intro">
-                        <p>At T3 Infra, our 20+ years in the field allow us to develop unique properties that reflect the trust and admiration of our valued customers. We believe in turning your vision of a dream home into reality.</p>
+                        <p>Indian Cricket Academy was established in 2016 with a clear vision—to shape the next generation of cricketing talent. Over the years, we've grown into a hub for aspiring cricketers, guided by passion and purpose.</p>
                     </div>
                     
                     <div class="about-details">
-                        <p>Nestled in prime locations across South and North Bangalore, we offer a perfect blend of serenity and convenience for all our customers. Whether you are looking for a residential plot or a peaceful farmland retreat, T3 INFRA is your ultimate destination.</p>
-                        
-                        <p>Founded by Prakash, who brings over 20 years of experience in land and property development, T3 INFRA stands tall as a trusted name in the real estate industry. Under his guidance, we have successfully developed numerous properties, earning a reputation for quality and reliability. Our services include converting lands into DC-converted sites with approvals from major authorities such as BBMP, BDA, and BIAPPA, ensuring that your investment is legally secure and future-proof. Whether it's residential plots or farmlands, every project is executed with precision and integrity.</p>
-                        <P>At T3INFRA, we don’t just develop land; we create communities designed for quality living. Our well-planned layouts and serene surroundings make for the perfect setting to build your future. Whether you're looking for a peaceful retreat away from the city or a strategically located plot for your dream home, T3INFRA offers it all. From DC-converted plots to BBMP-approved and BDA NOC sites, our developments cater to diverse needs, ensuring hassle-free ownership and an elevated lifestyle.</P>
-                        
+                        <p>Our academy offers training on matting, turf, and cement wickets, with dedicated spaces for fielding drills and net sessions. With advanced equipment and experienced coaching staff, Indian Cricket Academy is committed to nurturing skill, discipline, and sportsmanship in every young player.</p>
                     </div>
                     
-                    <div class="founder-info">
-                        <div class="founder-card">
-                            <div class="founder-image">
-                                <img src="/images/prakash.jpeg" alt="Prakash - Founder">
-                            </div>
-                            <div class="founder-details">
-                                <h4>Prakash Babu N M</h4>
-                                <span>Founder & CEO</span>
-                                <p>20+ Years of Excellence in Real Estate Development</p>
-                            </div>
-                        </div>
+                    <div class="passion-text">
+                        <h3>Love cricket? Crazy about football?</h3>
+                        <p>You've just laced up at the right spot! Whether you dream of smashing sixes or scoring winning goals, this is where passion meets practice. We're a vibrant hub for sports lovers who live and breathe the game.</p>
                     </div>
                 </div>
                 
-                    
                 <div class="about-image">
-                    <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="T3 Infra Development">
-                    <div class="experience-badge">
-                        <span class="years">20+</span>
-                        <span class="text">Years of Excellence</span>
+                    <img src="https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cricket Training">
+                    <div class="image-overlay">
+                        <i class="fas fa-play-circle"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vision Mission Section -->
-    <section class="vision-mission">
-        <div class="container">
-            <div class="vm-grid">
-                <div class="vm-card">
-                    <div class="vm-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Vision</h3>
-                    <p>To redefine land and farmland development by creating world-class properties that meet both national and international standards. We are committed to excellence in quality, safety, precision, and transparency.</p>
-                </div>
-                
-                <div class="vm-card">
-                    <div class="vm-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Mission</h3>
-                    <p>To continually integrate modern technology and ethical practices in our development projects. We value hard work and dedication, aiming to make a meaningful impact in our customers' lives.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values Section -->
-    <section class="core-values">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Core Values</h2>
-                <p class="section-subtitle">The principles that guide everything we do</p>
             </div>
             
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h4>Innovation</h4>
-                    <p>We embrace cutting-edge technologies and creative solutions to enhance our development processes.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
+            <!-- Facts & Figures -->
+            <div class="facts-section">
+                <h3>Facts & Figures</h3>
+                <div class="facts-grid">
+                    <div class="fact-card">
                         <i class="fas fa-users"></i>
+                        <h4>20+</h4>
+                        <p>Expert Trainers</p>
                     </div>
-                    <h4>Customer Focus</h4>
-                    <p>Our primary commitment is to understand and meet the unique needs of our clients.</p>
+                    <div class="fact-card">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Natural & Astro</h4>
+                        <p>Turf Grounds</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-home"></i>
+                        <h4>Dedicated</h4>
+                        <p>Home Ground</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>1000+</h4>
+                        <p>Students Trained</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>20+</h4>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="fact-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>State & District</h4>
+                        <p>Level Exposure</p>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Detailed About -->
+            <div class="detailed-about">
+                <p>At our Cricket and Football Academy, we believe every athlete begins with a spark — a passion for the game that, with the right guidance, can evolve into extraordinary skill and achievement. Established with the vision of creating a professional and nurturing environment for budding sports talent, our academy has grown into a trusted space where discipline meets enthusiasm, and training meets transformation.</p>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h4>Sustainability</h4>
-                    <p>We are dedicated to sustainable development practices and eco-friendly building solutions.</p>
-                </div>
+                <p>We take pride in our team of highly experienced coaches and trainers who bring with them years of playing and coaching experience at state, national, and international levels. Their hands-on approach, deep game insight, and commitment to each player's progress ensure that students receive not just coaching, but mentorship.</p>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h4>Excellence</h4>
-                    <p>We strive for excellence in every aspect of our work, ensuring the highest standards.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h4>Responsibility</h4>
-                    <p>We take responsibility for our actions, ensuring ethical practices and positive community impact.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h4>Adaptability</h4>
-                    <p>We are flexible and responsive to market changes and industry trends.</p>
-                </div>
+                <p>Our infrastructure is built to international standards, including turf and mat wickets for cricket, full-sized football grounds, fitness and recovery zones, and technical training modules. More than just physical training, we also emphasize tactical awareness, teamwork, mental conditioning, and leadership skills—qualities essential for success both on the field and beyond.</p>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
+    <section class="why-choose" id="why-choose">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">What Makes Us Your Best Choice?</h2>
-                <p class="section-subtitle">Discover why T3 Infra stands out in the real estate industry</p>
+                <h2>Why Choose Us</h2>
+                <div class="section-divider"></div>
+                <p>Discover what makes us the premier choice for sports training</p>
             </div>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <h4>Prime Locations</h4>
-                    <p>Strategically located plots in the most desirable areas of Bengaluru, perfect for building your dream home.</p>
+                    <h3>Qualified & Passionate Trainers</h3>
+                    <p>Our team consists of certified, knowledgeable, and passionate coaches who bring years of real-game experience to every session.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
+                        <i class="fas fa-user-friends"></i>
                     </div>
-                    <h4>Unmatched Expertise</h4>
-                    <p>Decades of real estate experience offering reliable guidance and exceptional service.</p>
+                    <h3>Individual Focus</h3>
+                    <p>With limited batch sizes and a 5:1 student-to-coach ratio, every player receives the attention and guidance they deserve.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <h4>Quality Assurance</h4>
-                    <p>Commitment to excellence with high-quality plots that adhere to the highest standards.</p>
+                    <h3>Customized Coaching Plans</h3>
+                    <p>Training is tailored to each player's strengths, areas for improvement, and long-term sporting goals.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h4>Customer-Centric</h4>
-                    <p>Personalized solutions tailored to your specific needs and goals.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h4>Transparent Processes</h4>
-                    <p>Clear and honest communication with full transparency in pricing and project details.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h4>Comprehensive Support</h4>
-                    <p>Ongoing support from initial consultation to final purchase.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive solutions for all your real estate needs</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search-location"></i>
-                    </div>
-                    <h3>Plot Acquisition</h3>
-                    <p>We specialize in identifying and acquiring prime plots of land that meet your investment or residential needs.</p>
-                    <ul class="service-features">
-                        <li>Prime location identification</li>
-                        <li>Legal documentation</li>
-                        <li>Investment analysis</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Land Conversion</h3>
-                    <p>We develop lands and convert them into Development Control (DC) sites, including BBMP-approved, BDA NOC sites.</p>
-                    <ul class="service-features">
-                        <li>BBMP approvals</li>
-                        <li>BDA NOC processing</li>
-                        <li>BIAPPA compliance</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Custom Home Development</h3>
-                    <p>Comprehensive custom home development services, from initial design to final construction.</p>
-                    <ul class="service-features">
-                        <li>Architectural design</li>
-                        <li>Construction management</li>
-                        <li>Quality assurance</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Farmland Development</h3>
-                    <p>Tailored solutions for transforming agricultural land into productive farmland or development-ready plots.</p>
-                    <ul class="service-features">
-                        <li>Site planning</li>
-                        <li>Soil testing</li>
-                        <li>Infrastructure development</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Property Management</h3>
-                    <p>Smooth operation and maintenance of your land or properties with comprehensive management services.</p>
-                    <ul class="service-features">
-                        <li>Maintenance services</li>
-                        <li>Tenant management</li>
-                        <li>Value optimization</li>
-                    </ul>
+                    <h3>Modern Infrastructure</h3>
+                    <p>Our academy is equipped with high-quality turf grounds, fitness equipment, and match-ready facilities.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Strategic Location</h3>
+                    <p>Centrally located with exclusive home ground access for regular practice, matches, and tournaments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Complete Development</h3>
+                    <p>We train not just the body but the mind — focusing on discipline, confidence, teamwork, and leadership.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Professional Turf</h3>
+                    <p>Players train on top-grade grass and natural turf, simulating real-match conditions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Investment Advisory</h3>
-                    <p>Expert investment advisory services to help you make informed decisions about land and property investments.</p>
-                    <ul class="service-features">
-                        <li>Market analysis</li>
-                        <li>ROI calculations</li>
-                        <li>Strategic planning</li>
-                    </ul>
+                    <h3>Proven Track Record</h3>
+                    <p>Our academy has consistently produced standout performers who've gone on to excel in district and state selections.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Ongoing Projects Section -->
-    <section id="ongoing" class="projects ongoing-projects">
+    <!-- Training Programs Section -->
+    <section class="training-section" id="training">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Residential Projects</h2>
-                <!-- <p class="section-subtitle">Current developments shaping the future</p> -->
+                <h2>Our Training Programs</h2>
+                <div class="section-divider"></div>
+                <p>Professional and personalized training in cricket and football with expert coaches and modern facilities</p>
             </div>
             
-            <div class="projects-grid">
-
-               <a href="projects/br-paradise/br-paradise.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>B R PARADISE</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>HEMMIGEPURA</p>
-                        <p>A PRIME LOCATION FOR MODERN LIVING</p>
+            <div class="training-tabs">
+                <button class="tab-btn active" data-tab="cricket">
+                    <i class="fas fa-baseball-ball"></i>
+                    Cricket Training
+                </button>
+                <button class="tab-btn" data-tab="football">
+                    <i class="fas fa-futbol"></i>
+                    Football Training
+                </button>
+                <button class="tab-btn" data-tab="corporate">
+                    <i class="fas fa-briefcase"></i>
+                    Corporate Cricket
+                </button>
+            </div>
+            
+            <div class="training-content">
+                <!-- Cricket Training -->
+                <div class="tab-content active" id="cricket">
+                    <div class="training-details">
+                        <div class="training-text">
+                            <h3>Cricket Training Excellence</h3>
+                            <p>At our academy, cricket training is built on structure, technique, and discipline. We begin by assessing each player's skill level to tailor a development plan that focuses on all key areas — batting, bowling, fielding, and wicketkeeping.</p>
+                            
+                            <div class="training-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Natural turf, matting, and astro wickets</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Bowling machines and video analysis</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Weekly practice matches</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Technical drills and fitness sessions</span>
+                                </div>
+                            </div>
+                            
+                            <div class="age-group">
+                                <h4>Age Group: 7-14 years</h4>
+                            </div>
+                        </div>
+                        <div class="training-image">
+                            <img src="https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cricket Training">
+                        </div>
                     </div>
                 </div>
-                </a>
-
-                <a href="projects/gokul-gardens/gokul-gardens.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>Gokul Gardens</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Bannerghatta Road Towards CK Palya Road</p>
-                        <p>Luxury Living in a Prime Location</p>
-                    </div>
-                </div>
-                </a>
                 
-               <a href="projects/Embassy/Embassy.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>Embassy</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Chunchunkuppe,OFF Mysore  Road</p>
-                        <p>BMRDA Approved Plots</p>
-                    </div>
-                </div>
-                </a>
-
-                <a href="projects/dmr_lotus_city/dmr_lotus_city.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>DMR LOTUS CITY</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Tavarekere towards Doddaladamara Road </p>
-                        <p>BMRDA Approved Plots</p>
-                    </div>
-                </div>
-                </a>
-
-                <a href="projects/gajanana_enclave/gajanana_enclave.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>GAJANANA ENCLAVE</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Gudimavu ,Kumbalagodu</p>
-                        <p>Rooted enclave : Your Dream Home Awaits</p>
-                    </div>
-                </div>
-                </a>
-
-               
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Completed Projects Section -->
-    <section id="completed" class="projects completed-projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Farm land Projects</h2>
-                <!-- <p class="section-subtitle">Successfully delivered developments</p> -->
-            </div>
-            
-            <div class="projects-grid">
-                 <a href="projects/temple_tribe/temple_tribe.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>TEMPLE TRIBE</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Gudimavu ,Kumbalagodu</p>
-                        <p>Hill View,Green View, Lake View</p>
+                <!-- Football Training -->
+                <div class="tab-content" id="football">
+                    <div class="training-details">
+                        <div class="training-text">
+                            <h3>Football Training Excellence</h3>
+                            <p>Football training at our academy is a perfect blend of skill-building, tactical learning, and physical development. Our program begins with a detailed player assessment, allowing our experienced coaches to provide position-specific guidance.</p>
+                            
+                            <div class="training-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Position-specific training (GK, Defense, Midfield, Striking)</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Dribbling, passing, shooting, ball control</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Speed, strength, and agility drills</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Video analysis and personalized mentoring</span>
+                                </div>
+                            </div>
+                            
+                            <div class="age-groups">
+                                <h4>Age Groups:</h4>
+                                <p>6-17 Years (First Batch)</p>
+                                <p>17-20 Years (Second Batch)</p>
+                            </div>
+                        </div>
+                        <div class="training-image">
+                            <img src="https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Football Training">
+                        </div>
                     </div>
                 </div>
-                </a>
-
-                <a href="projects/sannidhi_farmland/sannidhi_farmland.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sannidhi Farmland</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Hoonasandra,Nelamangala</p>
-                        <p>PREMIUM FARMLAND PLOTS</p>
+                
+                <!-- Corporate Cricket -->
+                <div class="tab-content" id="corporate">
+                    <div class="training-details">
+                        <div class="training-text">
+                            <h3>Corporate Cricket Training</h3>
+                            <p>Our Corporate Cricket Training program is designed to bring teams together, enhance fitness, and boost workplace morale through the spirit of sport. Tailored specifically for working professionals.</p>
+                            
+                            <div class="training-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Team building and communication enhancement</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Flexible schedules for working professionals</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Corporate tournament preparation</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Stress relief and employee wellness</span>
+                                </div>
+                            </div>
+                            
+                            <div class="corporate-benefits">
+                                <h4>Perfect for:</h4>
+                                <p>Corporate tournaments, team bonding, employee wellness programs</p>
+                            </div>
+                        </div>
+                        <div class="training-image">
+                            <img src="https://images.pexels.com/photos/163452/basketball-dunk-blue-game-163452.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Corporate Training">
+                        </div>
                     </div>
                 </div>
-                </a>
-
-                <a href="projects/DmrHillVíewFarms/DmrHillVíewFarms.html" class="project-card">
-                <div class="project-card">
-                     <div class="project-image">
-                        <img src="https://images.pexels.com/photos/1370704/pexels-photo-1370704.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Sunrise Farmlands">
-                    </div>
-                    <div class="project-content">
-                        <h3>DMR Hill View Farms</h3>
-                        <p class="project-location"><i class="fas fa-map-marker-alt"></i>Boosandra village Nelamangala</p>
-                        <p>THE HOME YOU'VE DREAMT OF IS NOW A REALITY</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Your Ideal Plot is Just a Decision Away!</h2>
-                <p>Your vision of the perfect home can become a reality. Invest in a plot that matches your dream and let us help you bring it to life. With our expert support, you'll be well on your way to creating a space that reflects your unique style.</p>
-                <button class="btn-primary large">Contact Now!</button>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Get in touch with our expert team</p>
+                <h2>Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p>Ready to start your sports journey? Contact us today!</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="info-card">
+                        <div class="info-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <h4>Visit Our Office</h4>
-                        <p>241, M N COMPLEX, 4TH FLOOR, 4TH MAIN,<br>
-    Shabari hotel building, 1st Cross Road, Punyabhoomi,<br>
-    opp. DR. RAJKUMAR, 2nd Block, Nandini Layout,<br>
-    Bengaluru, Karnataka 560096</p>
+                        <div class="info-details">
+                            <h3>Our Locations</h3>
+                            <div class="location">
+                                <h4>Location 1:</h4>
+                                <p>Dhi sports, #630, main, Bannerghatta Rd, Venugopal Reddy Layout, Arekere, Bengaluru, Karnataka 560076</p>
+                            </div>
+                            <div class="location">
+                                <h4>Location 2:</h4>
+                                <p>Sy.No. 129, 3C. 66, 3, rd Cross Road, Nrupathunga Nagar, Navodaya Nagar, 8th Phase, J. P. Nagar, Kothnur, Bengaluru, Karnataka 560078</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="info-card">
+                        <div class="info-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h4>Call Us</h4>
-                        <p>+91 8095773777</p>
+                        <div class="info-details">
+                            <h3>Contact Numbers</h3>
+                            <p><a href="tel:9632877217">9632877217</a></p>
+                            <p><a href="tel:9366146632">9366146632</a></p>
+                            <p><strong>WhatsApp:</strong> <a href="https://wa.me/919632877217">9632877217</a></p>
+                        </div>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="info-card">
+                        <div class="info-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h4>Email Us</h4>
-                        <p>info@t3infra.com<br>projects@t3infra.com</p>
-                    </div> 
+                        <div class="info-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:newsfootballacademy@gmail.com">newsfootballacademy@gmail.com</a></p>
+                        </div>
+                    </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="info-card">
+                        <div class="info-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h4>Working Hours</h4>
-                        <p>Mon-fri: 10:00 AM - 6:00 PM</p>
+                        <div class="info-details">
+                            <h3>Business Hours</h3>
+                            <p><strong>Coaching Time:</strong> 5:00 PM - 6:30 PM (Both Locations)</p>
+                            <p><strong>Office Time:</strong> 10:00 AM - 7:00 PM</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <form id="contact-form">
+                <div class="contact-form-container">
+                    <form class="main-contact-form" id="mainContactForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" id="name" required>
-                                <label for="name">Full Name</label>
+                                <input type="text" name="name" placeholder="Full Name" required>
+                                <i class="fas fa-user"></i>
                             </div>
-                            
                             <div class="form-group">
-                                <input type="email" id="email" required>
-                                <label for="email">Email Address</label>
+                                <input type="email" name="email" placeholder="Email Address" required>
+                                <i class="fas fa-envelope"></i>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="tel" id="phone" required>
-                                <label for="phone">Phone Number</label>
+                                <input type="tel" name="phone" placeholder="Phone Number" required>
+                                <i class="fas fa-phone"></i>
                             </div>
-                            
                             <div class="form-group">
-                                <select id="service" required>
-                                    <option value="">Select Service</option>
-                                    <option value="plot-acquisition">Plot Acquisition</option>
-                                    <option value="land-conversion">Land Conversion</option>
-                                    <option value="custom-home">Custom Home Development</option>
-                                    <option value="farmland">Farmland Development</option>
-                                    <option value="property-management">Property Management</option>
-                                    <option value="investment-advisory">Investment Advisory</option>
+                                <select name="sport" required>
+                                    <option value="">Select Sport</option>
+                                    <option value="cricket">Cricket</option>
+                                    <option value="football">Football</option>
+                                    <option value="both">Both Sports</option>
+                                    <option value="corporate">Corporate Training</option>
                                 </select>
-                                <label for="service">Service Interest</label>
+                                <i class="fas fa-futbol"></i>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <textarea id="message" rows="5"></textarea>
-                            <label for="message">Your Message</label>
+                            <textarea name="message" placeholder="Your Message" rows="5"></textarea>
+                            <i class="fas fa-comment"></i>
                         </div>
                         
-                        <button type="submit" class="btn-primary">Send Message</button>
+                        <button type="submit" class="form-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -673,67 +518,71 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <!-- Footer Logo -->
                     <div class="footer-logo">
-                        <img src="images/logo.jpeg" alt="T3 Infra Logo" style="height:150px;">
+                        <img src="/ICA-LOGO.png" alt="News Football Academy" class="logo-img">
+                        <span>News Football Academy</span>
                     </div>
-                    <p>Creating iconic structures with a commitment to quality. We build, you grow.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    <p>Infrastructure and a focus on discipline, teamwork, and performance. Whether you're stepping onto the pitch or the field, we help you sharpen your skills and play with purpose.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919632877217" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#ongoing">Ongoing Projects</a></li>
-                        <li><a href="#completed">Completed Projects</a></li>
+                        <li><a href="#training">Training Programs</a></li>
+                        <li><a href="#why-choose">Why Choose Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Services</h4>
+                    <h3>Training Programs</h3>
                     <ul>
-                        <li><a href="#">Plot Acquisition</a></li>
-                        <li><a href="#">Land Conversion</a></li>
-                        <li><a href="#">Custom Home Development</a></li>
-                        <li><a href="#">Farmland Development</a></li>
-                        <li><a href="#">Property Management</a></li>
+                        <li><a href="#training">Cricket Training</a></li>
+                        <li><a href="#training">Football Training</a></li>
+                        <li><a href="#training">Corporate Cricket</a></li>
+                        <li><a href="#contact">Private Coaching</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>241, M N COMPLEX, 4TH FLOOR, 4TH MAIN, Shabari hotel building, 1st Cross Road, Punyabhoomi, opp. DR. RAJKUMAR, 2nd Block, Nandini Layout, Bengaluru, Karnataka 560096</span>
-                    </div>
+                    <h3>Contact Info</h3>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <span>+91 8095773777</span>
+                        <span>9632877217, 9366146632</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <span>info@t3infra.com</span>
+                        <span>newsfootballacademy@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Coaching: 5-6:30 PM</span>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 T3 Infra. All rights reserved. | Designed with ❤️ for your dreams</p>
+                <div class="footer-divider"></div>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 News Football Academy. All rights reserved.</p>
+                    <div class="join-now-footer">
+                        <strong>JOIN NOW!</strong>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
         <i class="fas fa-chevron-up"></i>
     </button>
 
