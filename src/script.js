@@ -1,111 +1,195 @@
-// Mobile Navigation Toggle
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
+// Loading Screen
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    setTimeout(() => {
+        loadingScreen.style.opacity = '1';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500);
+    }, 3000);
+});
 
-navToggle.addEventListener('click', () => {
+// Header Scroll Effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
         navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
     });
 });
 
-// Smooth scrolling for navigation links
+// Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    }
-});
+// Hero Slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
 
-// Animated Counter for Stats
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
     
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target + (target === 99 ? '%' : '+');
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start) + (target === 99 ? '%' : '+');
-        }
-    }, 16);
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
 }
 
-// Intersection Observer for animations
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+// Auto slide
+setInterval(nextSlide, 5000);
+
+// Manual controls
+document.querySelector('.next-btn').addEventListener('click', nextSlide);
+document.querySelector('.prev-btn').addEventListener('click', prevSlide);
+
+// Dot navigation
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
+
+// Animated Counter
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Intersection Observer for Animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Animate stats counters
-            if (entry.target.classList.contains('stats')) {
-                const statNumbers = entry.target.querySelectorAll('.stat-number');
-                statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-target'));
-                    animateCounter(stat, target);
-                });
-            }
+            entry.target.classList.add('visible');
             
-            // Add fade-in animation to elements
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            // Trigger counter animation when stats section is visible
+            if (entry.target.classList.contains('hero-stats')) {
+                animateCounters();
+            }
         }
     });
 }, observerOptions);
 
-// Observe sections for animations
-document.querySelectorAll('section').forEach(section => {
-    if (!section.classList.contains('hero')) {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(section);
-    }
+// Add animation classes and observe elements
+document.addEventListener('DOMContentLoaded', function() {
+    // Add animation classes to elements
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    const valueCards = document.querySelectorAll('.value-card');
+    valueCards.forEach((card, index) => {
+        card.classList.add('scale-in');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, index) => {
+        card.classList.add('slide-in-left');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    const contactCards = document.querySelectorAll('.contact-card');
+    contactCards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.style.transitionDelay = `${index * 0.1}s`;
+    });
+    
+    // Observe elements for animation
+    const elementsToObserve = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .hero-stats');
+    elementsToObserve.forEach(element => {
+        observer.observe(element);
+    });
 });
 
-// Form submission
-document.querySelector('form').addEventListener('submit', function(e) {
+// Contact Form Handling
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Get form data
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const phone = this.querySelector('input[type="tel"]').value;
-    const destination = this.querySelectorAll('select')[0].value;
-    const service = this.querySelectorAll('select')[1].value;
-    const message = this.querySelector('textarea').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
     
     // Basic validation
-    if (!name || !email || !phone || !destination || !service) {
+    if (!name || !email || !phone || !service) {
         alert('Please fill in all required fields.');
         return;
     }
@@ -117,131 +201,156 @@ document.querySelector('form').addEventListener('submit', function(e) {
         return;
     }
     
-    // Phone validation (basic)
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-    if (!phoneRegex.test(phone)) {
+    // Phone validation
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
         alert('Please enter a valid phone number.');
         return;
     }
     
-    // Simulate form submission
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Booking Consultation...';
-    submitBtn.disabled = true;
+    // Success message
+    alert('Thank you for your inquiry! We will contact you soon to discuss your project requirements.');
     
-    setTimeout(() => {
-        alert('Thank you for your interest! Our expert counsellors will contact you within 24 hours to schedule your free consultation.');
-        this.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
-});
-
-// Add loading animation to buttons
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        if (this.type !== 'submit' && this.href && this.href.startsWith('#')) {
-            // Add ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        }
+    // Reset form
+    this.reset();
+    
+    // Remove focus from form elements
+    document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(element => {
+        element.blur();
     });
 });
 
-// Add ripple animation CSS
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes ripple {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
+// Scroll to Top Button
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
     }
-`;
-document.head.appendChild(style);
+});
 
-// Lazy loading for images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            }
-        });
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
+});
 
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
+// Form Label Animation
+document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(element => {
+    element.addEventListener('blur', function() {
+        if (this.value !== '') {
+            this.classList.add('has-value');
+        } else {
+            this.classList.remove('has-value');
+        }
+    });
+});
+
+// Button Click Handlers
+document.querySelectorAll('.contact-btn, .btn-primary').forEach(button => {
+    button.addEventListener('click', function(e) {
+        if (this.textContent.includes('Contact') || this.textContent.includes('Get Quote')) {
+            e.preventDefault();
+            const contactSection = document.getElementById('contact');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = contactSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Focus on the name input after scrolling
+            setTimeout(() => {
+                document.getElementById('name').focus();
+            }, 1000);
+        }
+    });
+});
+
+// View Services/Projects Button Functionality
+document.querySelectorAll('.btn-secondary').forEach(button => {
+    button.addEventListener('click', function(e) {
+        if (this.textContent.includes('View Projects')) {
+            e.preventDefault();
+            const projectsSection = document.getElementById('ongoing');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = projectsSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        } else if (this.textContent.includes('View Services')) {
+            e.preventDefault();
+            const servicesSection = document.getElementById('services');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = servicesSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Add hover effects to cards
+document.querySelectorAll('.service-card, .value-card, .feature-card, .project-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Parallax Effect for Hero Section
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroBackground = document.querySelector('.slide.active .slide-bg');
+    const rate = scrolled * -0.5;
+    
+    if (heroBackground) {
+        heroBackground.style.transform = `translateY(${rate}px)`;
+    }
+});
+
+// Add progress bar animation for ongoing projects
+function animateProgressBars() {
+    const progressBars = document.querySelectorAll('.project-progress .progress');
+    
+    progressBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 500);
     });
 }
 
-// Add scroll progress indicator
-const createScrollProgress = () => {
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #3b82f6, #1e40af);
-        z-index: 9999;
-        transition: width 0.1s ease;
-    `;
-    document.body.appendChild(progressBar);
-
-    window.addEventListener('scroll', () => {
-        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        progressBar.style.width = scrolled + '%';
+// Trigger progress bar animation when projects section is visible
+const projectsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateProgressBars();
+        }
     });
-};
+}, { threshold: 0.5 });
 
-createScrollProgress();
+const ongoingProjectsSection = document.querySelector('.ongoing-projects');
+if (ongoingProjectsSection) {
+    projectsObserver.observe(ongoingProjectsSection);
+}
 
-// Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
-    if (parallax && window.innerWidth > 768) {
-        const speed = scrolled * 0.3;
-        parallax.style.transform = `translateY(${speed}px)`;
-    }
-});
-
-// Add typing effect to hero title
-const typeWriter = (element, text, speed = 80) => {
-    let i = 0;
+// Add typing effect to hero titles
+function typeWriter(element, text, speed = 100) {
     element.innerHTML = '';
+    let i = 0;
     
     function type() {
         if (i < text.length) {
@@ -252,161 +361,83 @@ const typeWriter = (element, text, speed = 80) => {
     }
     
     type();
-};
+}
 
-// Initialize typing effect when page loads
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        setTimeout(() => {
-            typeWriter(heroTitle, originalText, 60);
-        }, 1000);
-    }
+// Add floating animation to value cards
+document.querySelectorAll('.value-card').forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.2}s`;
+    card.classList.add('float-animation');
 });
 
-// Add smooth reveal animation for cards
-const revealCards = () => {
-    const cards = document.querySelectorAll('.service-card, .why-card, .country-card, .mv-item');
+// CSS for floating animation (added via JavaScript)
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
     
-    cards.forEach((card, index) => {
-        if (!card.style.opacity) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 150);
-        }
-    });
-};
+    .float-animation {
+        animation: floatCard 4s ease-in-out infinite;
+    }
+`;
+document.head.appendChild(style);
 
-// Initialize card animations when sections come into view
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            if (entry.target.classList.contains('services') || 
-                entry.target.classList.contains('why-choose') ||
-                entry.target.classList.contains('countries') ||
-                entry.target.classList.contains('about')) {
-                revealCards();
+// Add progress indicator for page scroll
+const progressBar = document.createElement('div');
+progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    z-index: 10001;
+    transition: width 0.1s ease;
+`;
+document.body.appendChild(progressBar);
+
+window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.body.offsetHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    progressBar.style.width = scrollPercent + '%';
+});
+
+// Add mouse move parallax effect for floating elements
+document.addEventListener('mousemove', function(e) {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    
+    const floatingElements = document.querySelectorAll('.value-icon, .service-icon, .feature-icon');
+    floatingElements.forEach((element, index) => {
+        const speed = (index + 1) * 0.02;
+        const x = (mouseX - 0.5) * 10 * speed;
+        const y = (mouseY - 0.5) * 10 * speed;
+        
+        element.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+// Initialize AOS-like animations
+function initAnimations() {
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const animationType = entry.target.getAttribute('data-animate');
+                entry.target.classList.add(`animate-${animationType}`);
             }
-        }
-    });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.services, .why-choose, .countries, .about').forEach(section => {
-    sectionObserver.observe(section);
-});
-
-// Add hover effects for service cards
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
+        });
+    }, { threshold: 0.1 });
     
-    card.addEventListener('mouseleave', function() {
-        if (this.classList.contains('featured')) {
-            this.style.transform = 'scale(1.05)';
-        } else {
-            this.style.transform = 'translateY(0) scale(1)';
-        }
+    animatedElements.forEach(element => {
+        animationObserver.observe(element);
     });
-});
-
-// Add floating animation to floating card
-const floatingCard = document.querySelector('.floating-card');
-if (floatingCard) {
-    let floatDirection = 1;
-    setInterval(() => {
-        floatingCard.style.transform = `translateY(${floatDirection * 5}px)`;
-        floatDirection *= -1;
-    }, 2000);
 }
 
-// Add interactive hover effects for country cards
-document.querySelectorAll('.country-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        const flag = this.querySelector('.country-flag');
-        flag.style.transform = 'scale(1.2) rotate(10deg)';
-        flag.style.transition = 'transform 0.3s ease';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        const flag = this.querySelector('.country-flag');
-        flag.style.transform = 'scale(1) rotate(0deg)';
-    });
-});
-
-// Add success message animation
-function showSuccessMessage(message) {
-    const successDiv = document.createElement('div');
-    successDiv.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #10b981, #059669);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        z-index: 10000;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-    `;
-    successDiv.textContent = message;
-    document.body.appendChild(successDiv);
-    
-    setTimeout(() => {
-        successDiv.style.transform = 'translateX(0)';
-    }, 100);
-    
-    setTimeout(() => {
-        successDiv.style.transform = 'translateX(400px)';
-        setTimeout(() => {
-            document.body.removeChild(successDiv);
-        }, 300);
-    }, 3000);
-}
-
-// Enhanced form submission with success message
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const phone = this.querySelector('input[type="tel"]').value;
-    const destination = this.querySelectorAll('select')[0].value;
-    const service = this.querySelectorAll('select')[1].value;
-    
-    if (!name || !email || !phone || !destination || !service) {
-        alert('Please fill in all required fields.');
-        return;
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    
-    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
-    if (!phoneRegex.test(phone)) {
-        alert('Please enter a valid phone number.');
-        return;
-    }
-    
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Booking Consultation...';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-        showSuccessMessage('Consultation booked successfully! We will contact you soon.');
-        this.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
+// Call initialization functions
+document.addEventListener('DOMContentLoaded', function() {
+    initAnimations();
 });
